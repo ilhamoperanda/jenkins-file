@@ -9,4 +9,13 @@ pipeline {
             }
         }
     }
+	
+	stages {
+        stage('git') {
+            steps {
+                echo 'git clone'
+                git credentialsId: 'git_cred', url: 'https://github.com/ilhamoperanda/about-me.git', branch: 'master'
+            }
+        }
+    }
 }
