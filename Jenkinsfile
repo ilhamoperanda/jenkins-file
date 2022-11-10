@@ -37,7 +37,7 @@ pipeline {
         stage('Git Clone') {
             steps {
 
-                checkout([$class: 'MercurialSCM', credentialsId: 'svn-cred', source: 'https://idcbuesbdbs001.mylab.local:8443/svn/ESB_ID_Project/ESB_RFC2913011_WMOnboardingOS_DOC'])
+                svn "https://idcbuesbdbs001.mylab.local:8443/svn/ESB_ID_Project/ESB_${params.RFC}_DOC"
                 git branch: "${params.BRANCH}/${params.RFC}", 
 					credentialsId: '2ea347b8-e704-4ccf-9b0f-7c087c762377', 
 					url: "https://bitbucket.cimbniaga.co.id/scm/eib/${params.REPO}.git"
