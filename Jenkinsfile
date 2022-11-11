@@ -37,11 +37,11 @@ pipeline {
         stage('Git Clone') {
             steps {
 
-                checkout([$class: 'SubversionSCM', additionalCredentials: [], excludedCommitMessages: '', excludedRegions: '', excludedRevprop: '', excludedUsers: '', filterChangelog: false, ignoreDirPropChanges: false, includedRegions: '', locations: [[cancelProcessOnExternalsFail: true, credentialsId: 'svn-cred', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: "https://idcbuesbdbs001.mylab.local:8443/svn/ESB_ID_PROJECT/ESB_${params.RFC}_DOC"]], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']])
+                // checkout([$class: 'SubversionSCM', additionalCredentials: [], excludedCommitMessages: '', excludedRegions: '', excludedRevprop: '', excludedUsers: '', filterChangelog: false, ignoreDirPropChanges: false, includedRegions: '', locations: [[cancelProcessOnExternalsFail: true, credentialsId: 'svn-cred', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: "https://idcbuesbdbs001.mylab.local:8443/svn/ESB_ID_PROJECT/ESB_${params.RFC}_DOC"]], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']])
 
-                echo "copy from workspace jenkins to dir project"
-                bat "xcopy /e /v C:\\Users\\IO36842X\\.jenkins\\workspace\\git_clone_iib D:\\CN036842\\Project\\${params.RFC}\\doc\\"
-                echo "SUCCESS"
+                // echo "copy from workspace jenkins to dir project"
+                // bat "xcopy /e /v C:\\Users\\IO36842X\\.jenkins\\workspace\\git_clone_iib D:\\CN036842\\Project\\${params.RFC}\\doc\\"
+                // echo "SUCCESS"
                 
                 git branch: "${params.BRANCH}/${params.RFC}", 
 					credentialsId: '2ea347b8-e704-4ccf-9b0f-7c087c762377', 
