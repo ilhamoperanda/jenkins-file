@@ -37,7 +37,8 @@ pipeline {
         stage('Git Clone') {
             steps {
 
-                svn "https://idcbuesbdbs001.mylab.local:8443/svn/ESB_ID_Project/ESB_${params.RFC}_DOC"
+//                 svn "https://idcbuesbdbs001.mylab.local:8443/svn/ESB_ID_Project/ESB_${params.RFC}_DOC"
+		checkout([$class: 'SubversionSCM', additionalCredentials: [], excludedCommitMessages: '', excludedRegions: '', excludedRevprop: '', excludedUsers: '', filterChangelog: false, ignoreDirPropChanges: false, includedRegions: '', locations: [[cancelProcessOnExternalsFail: true, credentialsId: 'svn-cred', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: "https://idcbuesbdbs001.mylab.local:8443/svn/ESB_ID_PROJECT/ESB_${params.RFC}_DOC"]], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']])
                 git branch: "${params.BRANCH}/${params.RFC}", 
 					credentialsId: '2ea347b8-e704-4ccf-9b0f-7c087c762377', 
 					url: "https://bitbucket.cimbniaga.co.id/scm/eib/${params.REPO}.git"
